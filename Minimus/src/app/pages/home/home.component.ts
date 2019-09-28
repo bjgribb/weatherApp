@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ActivatedRoute } from "@angular/router";
+import { WeatherService } from "src/app/services/weather.service";
 
 @Component({
   selector: "app-home",

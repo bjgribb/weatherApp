@@ -124,4 +124,19 @@ export class WeatherService {
       });
     return dataSubject;
   }
+
+  getForecast(
+    city: string,
+    metric: "metric" | "imperial" = "metric"
+  ): Subject<Array<any>> {
+    const dataSubject = new Subject<Array<any>>();
+    this.http
+      .get(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${metric}&APPID=952d6b1a52fe15a7b901720074680562`
+      )
+      .subscribe((weather: any) => {
+        dataSubject.next(weather.list);
+      });
+    return dataSubject;
+  }
 }
