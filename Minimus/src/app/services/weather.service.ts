@@ -3,31 +3,27 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "../../environments/environment";
 import { first, map } from "rxjs/operators";
+import * as moment from "moment";
 
 @Injectable({
   providedIn: "root"
 })
 export class WeatherService {
-  private readonly baseURL =
-    "https://api.openweathermap.org/data/2.5/weather?q=";
-  private readonly forecastURL =
-    "https://api.openweathermap.org/data/2.5/forecast?q=";
-  private readonly appID = environment.appId;
-
   constructor(public http: HttpClient) {}
 
-  getWeather(city: string, metric: "imperial"): Observable<any> {
-    return this.http
-      .get(`${this.baseURL}${city}&units=${metric}&APPID=${this.appID}`)
-      .pipe(first());
+  getCurrentWeather(loc: string) {
+    return this.http.get(
+      `${environment.apiUrl}/weather?q=${loc}&appid=${environment.apiKey}`
+    );
   }
 
-  getForecast(city: string, metric: "imperial"): Observable<any> {
-    return this.http
-      .get(`${this.baseURL}${city}&units=${metric}&APPID=${this.appID}`)
-      .pipe(
-        first(),
-        map(weather => weather["list"])
-      );
+  getForecast(loc: string) {
+    return this.http.get(
+      `${environment.apiUrl}/forecast?q=${loc}&appid=${environment.apiKey}`
+    );
+  }
+
+  getUv(lat: number, lon: number) {
+    let startDate = Math.round(+moment);
   }
 }
