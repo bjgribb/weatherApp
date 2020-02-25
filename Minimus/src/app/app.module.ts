@@ -8,6 +8,9 @@ import { WeatherCardComponent } from "./ui/weather-card/weather-card.component";
 import { AddCardComponent } from "./ui/add-card/add-card.component";
 import { DetailsComponent } from "./pages/details/details/details.component";
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -17,7 +20,14 @@ import { HttpClientModule } from "@angular/common/http";
     AddCardComponent,
     DetailsComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
