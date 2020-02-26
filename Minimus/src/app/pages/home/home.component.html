@@ -1,7 +1,10 @@
-<div class="main__container">
-  <app-weather-card
-    *ngFor="let city of cities | async"
-    [city]="city?.name"
-  ></app-weather-card>
-  <app-add-card></app-add-card>
+<div class="d-flex justify-content-center align-items-center mt-2">
+  <mat-form-field class="w-75">
+    <mat-label>Search for your city...</mat-label>
+    <input matInput [formControl]="city" />
+  </mat-form-field>
+  <button (click)="searchCity()" mat-button class="h-50" color="primary">
+    Search
+  </button>
 </div>
+<img src="http://openweathermap.org/img/wn/10d@2x.png" />

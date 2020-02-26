@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
-import { ActivatedRoute } from "@angular/router";
 import { WeatherService } from "src/app/services/weather.service";
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: "app-home",
@@ -9,44 +8,18 @@ import { WeatherService } from "src/app/services/weather.service";
   styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
-  city: string;
-  state: string;
-  temp: number;
-  hum: number;
-  wind: number;
+  constructor(public weather: WeatherService) {}
 
-  today: string;
+  // http://openweathermap.org/img/wn/10d@2x.png
 
-  day1Name: string;
-  day1State: string;
-  day1Temp: number;
-
-  day2Name: string;
-  day2State: string;
-  day2Temp: number;
-
-  day3Name: string;
-  day3State: string;
-  day3Temp: number;
-
-  day4Name: string;
-  day4State: string;
-  day4Temp: number;
-
-  day5Name: string;
-  day5State: string;
-  day5Temp: number;
-
-  sub1: Subscription;
-  sub2: Subscription;
-  sub3: Subscription;
-  sub4: Subscription;
-  sub5: Subscription;
-
-  constructor(
-    public activeRouter: ActivatedRoute,
-    public weather: WeatherService
-  ) {}
+  city = new FormControl("");
 
   ngOnInit() {}
+
+  searchCity() {
+    console.log(this.city.value);
+    this.weather
+      .getCurrentWeather(this.city.value)
+      .subscribe(res => console.log(res));
+  }
 }
