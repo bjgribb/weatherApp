@@ -1,27 +1,21 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { HomeComponent } from "./pages/home/home.component";
-import { WeatherCardComponent } from "./ui/weather-card/weather-card.component";
-import { AddCardComponent } from "./ui/add-card/add-card.component";
-import { DetailsComponent } from "./pages/details/details/details.component";
-import { HttpClientModule } from "@angular/common/http";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatButtonModule } from "@angular/material/button";
-import { MatFormFieldModule } from "@angular/material/form-field";
-import { ReactiveFormsModule } from "@angular/forms";
-import { MatInputModule } from "@angular/material";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { WeatherCardComponent } from './ui/weather-card/weather-card.component';
+import { AddCardComponent } from './ui/add-card/add-card.component';
+import { DetailsComponent } from './pages/details/details/details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule, MatCardModule } from '@angular/material';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    WeatherCardComponent,
-    AddCardComponent,
-    DetailsComponent
-  ],
+  declarations: [AppComponent, HomeComponent, WeatherCardComponent, AddCardComponent, DetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,7 +24,8 @@ import { MatInputModule } from "@angular/material";
     MatButtonModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
