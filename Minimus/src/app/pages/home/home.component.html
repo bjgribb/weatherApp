@@ -7,8 +7,8 @@
     Search
   </button>
 </div>
-<div class="d-flex mx-2 justify-content-center" *ngIf="currentWeather$ | async as currentWeather">
-  <mat-card class="text-center">
+<div class="d-flex mx-2 justify-content-center py-2" *ngIf="currentWeather$ | async as currentWeather">
+  <mat-card style="width: 200px;" class="text-center">
     <mat-card-title>{{ currentWeather.name | uppercase }}</mat-card-title>
     <mat-card-subtitle>{{ currentWeather.main.temp }}</mat-card-subtitle>
     <img mat-card-image src="http://openweathermap.org/img/wn/{{ currentWeather.weather[0].icon }}@2x.png" />
