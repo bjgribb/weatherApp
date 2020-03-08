@@ -1,17 +1,20 @@
 <div class="d-flex justify-content-center align-items-center mt-2">
   <mat-form-field class="w-75">
     <mat-label>Search for your city...</mat-label>
-    <input matInput [formControl]="city" />
+    <input (keydown.enter)="searchCity()" matInput [formControl]="city" />
   </mat-form-field>
-  <button (click)="searchCity()" mat-button class="h-50" color="primary">
+  <button (click)="searchCity()" mat-raised-button class="ml-1" color="primary">
     Search
   </button>
 </div>
-<div class="d-flex mx-2 justify-content-center py-2" *ngIf="currentWeather$ | async as currentWeather">
-  <mat-card style="width: 200px;" class="text-center">
-    <mat-card-title>{{ currentWeather.name | uppercase }}</mat-card-title>
-    <mat-card-subtitle>{{ currentWeather.main.temp }}</mat-card-subtitle>
-    <img mat-card-image src="http://openweathermap.org/img/wn/{{ currentWeather.weather[0].icon }}@2x.png" />
-    <mat-card-content>{{ currentWeather.weather[0].description | uppercase }}</mat-card-content>
-  </mat-card>
+<div class="d-flex flex-wrap mx-2 justify-content-center py-2" *ngIf="currentWeather$ | async as currentWeather">
+  <div *ngFor="let weather of currentWeather.list">
+    <mat-card style="width: 200px;" class="text-center m-2">
+      <mat-card-title>{{ weather.weather[0].main | uppercase }}</mat-card-title>
+      <mat-card-subtitle>{{ weather.dt_txt | date: 'medium' }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ weather.main.temp }}</mat-card-subtitle>
+      <img mat-card-image src="http://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@2x.png" />
+      <mat-card-content>{{ weather.weather[0].description | uppercase }}</mat-card-content>
+    </mat-card>
+  </div>
 </div>

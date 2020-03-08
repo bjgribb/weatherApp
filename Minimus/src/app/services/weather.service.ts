@@ -16,6 +16,6 @@ export class WeatherService {
   }
 
   getForecast(loc: string) {
-    return this.http.get(`${environment.apiUrl}/forecast?q=${loc}&appid=${environment.apiKey}`);
+    return this.http.get(`${environment.apiUrl}/forecast?q=${loc}&units=imperial&appid=${environment.apiKey}`);
   }
 }

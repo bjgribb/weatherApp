@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   searchCity() {
-    this.currentWeather$ = this.weather.getCurrentWeather(this.city.value);
+    this.currentWeather$ = this.weather.getForecast(this.city.value);
     this.currentWeather$.subscribe(res => console.log(res));
   }
 }
