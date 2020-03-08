@@ -13,9 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule, MatCardModule } from '@angular/material';
+import { DegreesPipe } from './pipes/degrees.pipe';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, WeatherCardComponent, AddCardComponent, DetailsComponent],
+  declarations: [AppComponent, HomeComponent, WeatherCardComponent, AddCardComponent, DetailsComponent, DegreesPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -12,7 +12,7 @@
     <mat-card style="width: 200px;" class="text-center m-2">
       <mat-card-title>{{ weather.weather[0].main | uppercase }}</mat-card-title>
       <mat-card-subtitle>{{ weather.dt_txt | date: 'medium' }}</mat-card-subtitle>
-      <mat-card-subtitle>{{ weather.main.temp }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ weather.main.temp | degrees }}</mat-card-subtitle>
       <img mat-card-image src="http://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@2x.png" />
       <mat-card-content>{{ weather.weather[0].description | uppercase }}</mat-card-content>
     </mat-card>
