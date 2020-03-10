@@ -7,14 +7,23 @@
     Search
   </button>
 </div>
-<div class="d-flex flex-wrap mx-2 justify-content-center py-2" *ngIf="currentWeather$ | async as currentWeather">
-  <div *ngFor="let weather of currentWeather.list">
-    <mat-card style="width: 200px;" class="text-center m-2">
-      <mat-card-title>{{ weather.weather[0].main | uppercase }}</mat-card-title>
-      <mat-card-subtitle>{{ weather.dt_txt | date: 'medium' }}</mat-card-subtitle>
-      <mat-card-subtitle>{{ weather.main.temp | degrees }}</mat-card-subtitle>
-      <img mat-card-image src="http://openweathermap.org/img/wn/{{ weather.weather[0].icon }}@2x.png" />
-      <mat-card-content>{{ weather.weather[0].description | uppercase }}</mat-card-content>
-    </mat-card>
+
+<div *ngIf="weatherByDay" class="text-center">
+  <h1>{{ cityName }}</h1>
+  <div *ngFor="let weather of weatherByDay; last as last">
+    {{ weather.date | date: 'fullDate' }}
+    <div class="d-flex flex-wrap mx-2 justify-content-center py-2">
+      <div *ngFor="let weatherData of weather.data">
+        <div class="text-center m-2 weather-card">
+          <h1>{{ weatherData.main.temp | degrees }}</h1>
+          <img src="http://openweathermap.org/img/wn/{{ weatherData.weather[0].icon }}@2x.png" />
+          <p>{{ weatherData.weather[0].description | titlecase }}</p>
+          <p>
+            {{ weatherData.dt * 1000 | date: 'shortTime' }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <mat-divider *ngIf="!last" class="py-2 mx-2"></mat-divider>
   </div>
 </div>
