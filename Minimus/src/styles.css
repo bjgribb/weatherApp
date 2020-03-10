@@ -8,7 +8,17 @@ body {
 }
 body {
   margin: 0;
+  padding: 2rem;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-  background-color: #000000;
+  background-color: #202020;
   color: white;
+}
+
+.ngx-charts,
+text {
+  fill: #e0e0e0;
+}
+
+.ngx-charts {
+  float: none !important;
 }
