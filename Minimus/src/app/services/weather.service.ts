@@ -1,3 +1,4 @@
+import { ForecastResponse } from './WeatherModel';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -15,7 +16,7 @@ export class WeatherService {
     return this.http.get(`${environment.apiUrl}/weather?q=${loc}&units=imperial&appid=${environment.apiKey}`);
   }
 
-  getForecast(loc: string) {
-    return this.http.get(`${environment.apiUrl}/forecast?q=${loc}&units=imperial&appid=${environment.apiKey}`);
+  getForecast(cityName: string): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/forecast?q=${cityName}&units=imperial&appid=${environment.apiKey}`);
   }
 }
